@@ -131,3 +131,6 @@ dmypy.json
 # static files for project
 /static
 /data
+
+#ignore pycharm files
+.idea
