@@ -7,6 +7,9 @@
 
 .docker
 
+# Pycharm
+.idea
+
 # Python
 
 app/__pycache__/
