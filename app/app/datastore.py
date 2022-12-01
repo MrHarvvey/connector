@@ -3,7 +3,7 @@ Google Cloud Store helpers
 """
 from django.test.runner import DiscoverRunner
 from google.cloud import ndb
-from google.auth.credentials import AnonymouseCredentials
+from google.auth.credentials import AnonymousCredentials
 
 from django.conf import settings
 
@@ -12,7 +12,7 @@ def get_client():
     if settings.IS_GAE:
         return ndb.Client(namespace=settings.DATASTORE_NAMESPACE)
     return ndb.Client(
-        credentials=AnonymouseCredentials(),
+        credentials=AnonymousCredentials(),
         project=settings.GOOGLE_CLOUD_PROJECT,
         namespace=settings.DATASTORE_NAMESPACE,
     )
@@ -39,6 +39,6 @@ class TestRunner(DiscoverRunner):
         """Set up the database"""
         pass
 
-    def teardown_databases(self, ols_config, **kwargs):
+    def teardown_databases(self, old_config, **kwargs):
         pass
 
