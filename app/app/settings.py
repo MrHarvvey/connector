@@ -40,10 +40,11 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
+    'django.middleware.common.Comm onMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'app.datastore.NDBMiddleware',
 ]
 
 ROOT_URLCONF = 'app.urls'
@@ -119,7 +120,7 @@ LOGGING = {
     'version': 1,
     'disable_existing_loggers': False,
     'handlers': {
-        'console':{
+        'console': {
             'class': 'logging.StreamHandler',
         },
     },
@@ -128,3 +129,9 @@ LOGGING = {
         'level': 'DEBUG',
     }
 }
+
+IS_GAE = os.environ.get('GAE_APPLICATION', False)
+GOOGLE_CLOUD_PROJECT = os.environ.get('GOOGLE_CLOUD_PROJECT')
+DATASTORE_NAMESPACE = 'main'
+
+TEST_RUNNER = 'app.datastore.TestRunner'
