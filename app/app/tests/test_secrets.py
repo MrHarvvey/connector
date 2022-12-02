@@ -9,7 +9,7 @@ from unittest.mock import (
 
 from django.test import SimpleTestCase
 
-from app.app import secrets
+from app import secrets
 
 MOCK_GCP_PROJECT = 'test-project'
 
@@ -59,5 +59,5 @@ class TestLocalDevModelTests(SimpleTestCase):
         with patch.dict('os.environ', {name: secret}):
             val = secrets.get(name)
 
-        self.assertEqual(val)
+        self.assertEqual(val, secret)
         mock_sm.assert_not_called()
