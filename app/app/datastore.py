@@ -19,7 +19,7 @@ def get_client():
 
 
 class NDBMiddleware:
-    def __int__(self, get_response):
+    def __init__(self, get_response):
         self.get_response = get_response
         self.client = get_client()
 

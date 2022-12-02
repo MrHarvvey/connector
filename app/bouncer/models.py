@@ -1,3 +1,10 @@
-from django.db import models
+"""
+Datastore Models
+"""
+from google.cloud import ndb
 
-# Create your models here.
+
+class Redirect(ndb.Model):
+    name = ndb.StringProperty()
+    destination_url = ndb.StringProperty()
+    created_on = ndb.DateTimeProperty(auto_now=True)
