@@ -40,7 +40,7 @@ class TestSecretManagerTests(SimpleTestCase):
 
         exp_path = (
             f'projects/{MOCK_GCP_PROJECT}/secrets'
-            f'/{name}/version/latest'
+            f'/{name}/versions/latest'
         )
         mock_client.access_secret_version.assert_called_once_with(
             request={

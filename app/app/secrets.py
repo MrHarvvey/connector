@@ -12,7 +12,7 @@ def get(name):
     is_gae = os.environ.get('GAE_APPLICATION')
     if is_gae:
         client = SecretManagerServiceClient()
-        secret_path = f'projects/{project}/secrets/{name}/version/latest'
+        secret_path = f'projects/{project}/secrets/{name}/versions/latest'
 
         res = client.access_secret_version(request={'name': secret_path})
         return res.payload.data.decode('utf-8')
