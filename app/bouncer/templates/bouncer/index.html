@@ -3,10 +3,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Title</title>
+  <title>Short URL Links</title>
   <link rel="stylesheet" href="{% static 'style.css' %}" />
 </head>
 <body>
-<h3>Hello word from google cloud </h3>
+  <h1>Short URL links </h1>
+  <ul>
+    {% for redirect in redirects %}
+      <li><a href="{% url 'bouncer:redirect' slug=redirect.key.id %}">{{ redirect.name }}</a>
+      </li>
+    {% endfor %}
+  </ul>
 </body>
 </html>
